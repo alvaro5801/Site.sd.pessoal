@@ -1,0 +1,665 @@
+/* Habilita o scroll suave na página */
+html {
+  scroll-behavior: smooth; /* Ativa a rolagem suave */
+  scroll-padding-top: 70px; /* Ajusta o espaço superior para o menu fixo */
+}
+
+
+/* Estilos do menu */
+.menu {
+  display: flex;
+  flex-direction: row; /* Alterado para uma linha (horizontal) */
+  justify-content: space-around; /* Alinha os itens à esquerda */
+  position: fixed;
+  align-items: center;
+  top: 60px;
+  left: 0; /* Mantém o menu à esquerda da tela */
+  width: 0; /* Menu começa fechado */
+  height: auto; /* Mantém a altura do menu */
+  background-color: #eee;
+  overflow: visible;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+  border-radius: 5px; /* Bordas arredondadas para suavizar o visual */
+  transition: width 0.3s ease, padding 0.3s ease; /* Transições suaves */
+  display: none;
+  list-style: none; /* Garante que nenhum marcador seja aplicado */
+  
+}
+
+/*Estilo dos botões do menu*/
+.menu a {
+  margin: 20px 0; /* Distância entre os itens */
+  font-size: 12px; /* Aumentei o tamanho da fonte para melhor legibilidade */
+  color: #333;
+  text-decoration: none;
+  opacity: 0;
+  padding: 30px;
+  border-radius: 4px; /* Arredonda os cantos dos links */
+  text-align: right; /* Alinha os textos à deireita */
+  transition: opacity 0.3s ease, background-color 0.3s ease; /* Transições suaves para opacidade e fundo */
+  width: auto; /* Garante que os links ocupem a largura completa */
+  display: inline-block; /* Ajusta dinamicamente com base no tamanho do texto */
+  
+}
+
+
+
+/* Estilos para o botão do menu hamburguer */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  position: fixed; /* Torna o botão fixo na tela */
+  top: 15px; /* Distância do topo */
+  left: 20px; /* Distância da esquerda */
+  z-index: 999; /* Garante que o botão ficará acima de outros elementos */
+}
+
+/* Menu Expandível (horizontal) */
+#navigation-menu {
+  display: flex; /* Torna o menu uma linha */
+  flex-direction: row; /* Organiza os itens na horizontal */
+  justify-content: flex-start; /* Alinha os itens à esquerda */
+  align-items: center; /* Centraliza verticalmente os itens */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0; /* Inicialmente o menu está oculto */
+  height: auto; /* Define a altura do menu */
+  background-color: #eee;
+  overflow: visible;
+  transition: width 0.3s ease; /* Transição suave ao expandir */
+  z-index: 999;
+}
+
+/* Estilos para as barras do menu */
+.menu-toggle div {
+  width: 100%;
+  height: 4px;
+  background-color: #333;
+  transition: all 0.3s ease;
+ 
+}
+
+
+.menu a:hover {
+  background-color: #004080; /* Mudança de cor ao passar o mouse */
+  color: #fff; /* Cor do texto quando em hover */
+}
+
+
+/* Exibir os links do menu quando o menu estiver expandido */
+#menu-checkbox:checked + .menu-toggle + .menu a {
+  opacity: 1; /* Torna os links visíveis quando o menu for expandido */
+  display: block; /* Garante que todos os itens sejam exibidos */
+}
+
+/* Animação do ícone do menu hambúrguer para o formato de "X" */
+#menu-checkbox:checked + .menu-toggle .bar1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-checkbox:checked + .menu-toggle .bar2 {
+  opacity: 0;
+}
+
+#menu-checkbox:checked + .menu-toggle .bar3 {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+
+#menu-checkbox:checked + .menu-toggle + .menu {
+  display: flex;
+  flex-direction: row; /* Alinha os itens verticalmente */
+  width: auto; /* Define a largura desejada do menu */
+  height: 70px; /* Define a altura do menu para ocupar toda a tela */
+  padding: auto; /* Adiciona espaçamento interno para os itens */
+}
+
+
+/* Melhorando a responsividade para telas menores */
+@media (max-width: 768px) {
+  .menu {
+    width: 0; /* Garante que o menu comece fechado */
+    position: fixed; /* Para que o menu fique fixo na tela */
+    top: 60px; /* Coloca o menu logo abaixo do ícone */
+    left: 0;
+    height: 100%;
+    background-color: #eee;
+    overflow: hidden;
+    transition: width 0.3s ease; /* Animação suave ao expandir */
+  }
+}
+
+
+.menu a {
+  font-size: 18px; /* Ajusta o tamanho da fonte para melhor legibilidade em dispositivos móveis */
+}
+
+ /* Ajuste para o botão do hambúrguer */
+ .menu-toggle div {
+  height: 5px; /* Aumenta a altura das barras para torná-las mais visíveis */
+}
+/*-------------estilop0----------*/
+
+/* Estilos para o contêiner principal */
+#main-container {
+  max-width: 1200px; /* Limita a largura máxima para uma leitura agradável */
+  margin: 0 auto; /* Centraliza o contêiner na tela */
+  padding: 20px;
+  background-color: #fff; /* Cor de fundo branca para o contêiner */
+  border-radius: 10px; /* Bordas arredondadas para um visual mais suave */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave para um efeito de profundidade */
+}
+
+/* Estilos para o título principal */
+#main-container h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+/* Melhorando a responsividade para telas menores */
+@media (max-width: 768px) {
+  #main-container {
+      padding: 15px; /* Reduz o padding em telas menores */
+  }
+
+  #main-container h1 {
+      font-size: 28px; /* Ajusta o tamanho da fonte do título */
+  }
+}
+
+
+/*-------------estilop1-----------*/
+/* Estilos para a seção de Materiais Necessários */
+#materials-list {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center; /* Centraliza o título */
+}
+
+/* Lista de materiais */
+#materials-list + ul {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  list-style-type: none; /* Remove os marcadores padrão */
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Estilo para cada item da lista */
+#materials-list + ul li {
+  background-color: #f4f4f4; /* Cor de fundo leve para destacar os itens */
+  margin: 10px 0; /* Distância entre os itens */
+  padding: 10px;
+  border-radius: 5px; /* Bordas arredondadas para os itens */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para hover */
+}
+
+/* Efeito de hover nos itens */
+#materials-list + ul li:hover {
+  transform: translateY(-5px); /* Levanta o item ao passar o mouse */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Aumenta a sombra no hover */
+}
+
+/* Melhorando a responsividade para telas menores */
+@media (max-width: 768px) {
+  #materials-list {
+      font-size: 22px; /* Ajusta o tamanho da fonte para telas menores */
+  }
+
+  #materials-list + ul {
+      font-size: 16px; /* Ajusta o tamanho da fonte dos itens para telas pequenas */
+  }
+}
+
+/*------------estilop2---------*/
+
+
+/* Estilos para a seção de Esquema Conceitual */
+#esquema-conceitual {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center; /* Centraliza o título */
+}
+
+/* Estilo da imagem */
+.esquema-coneitual {
+  max-width: 100%; /* Garante que a imagem não ultrapasse a largura da tela */
+  height: auto; /* Ajusta a altura automaticamente para manter a proporção */
+  border-radius: 10px; /* Bordas arredondadas para suavizar a imagem */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave em volta da imagem */
+  margin: 0 auto; /* Centraliza a imagem */
+  display: block; /* Garante que a imagem ocupe o espaço inteiro disponível */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transição para efeito de hover */
+}
+
+/* Efeito de hover na imagem */
+.esquema-coneitual:hover {
+  transform: scale(1.05); /* Aumenta um pouco o tamanho da imagem no hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Aumenta a sombra quando o mouse passa sobre a imagem */
+}
+
+/* Melhorando a responsividade para telas menores */
+@media (max-width: 768px) {
+  #esquema-conceitual {
+      font-size: 22px; /* Ajusta o tamanho da fonte do título em telas pequenas */
+  }
+}
+/*--------estilop3----------*/
+
+/* Estilos para a seção de Esquema Conceitual */
+#esquema-conceitual {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center; /* Centraliza o título */
+}
+
+/* Estilo da imagem */
+.esquema-coneitual {
+  max-width: 100%; /* Garante que a imagem não ultrapasse a largura da tela */
+  height: auto; /* Ajusta a altura automaticamente para manter a proporção */
+  border-radius: 10px; /* Bordas arredondadas para suavizar a imagem */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave em volta da imagem */
+  margin: 0 auto; /* Centraliza a imagem */
+  display: block; /* Garante que a imagem ocupe o espaço inteiro disponível */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transição para efeito de hover */
+}
+
+/* Efeito de hover na imagem */
+.esquema-coneitual:hover {
+  transform: scale(1.05); /* Aumenta um pouco o tamanho da imagem no hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Aumenta a sombra quando o mouse passa sobre a imagem */
+}
+
+/* Melhorando a responsividade para telas menores */
+@media (max-width: 768px) {
+  #esquema-conceitual {
+      font-size: 22px; /* Ajusta o tamanho da fonte do título em telas pequenas */
+  }
+}
+
+
+/*--------estilop4-----------*/
+
+/* Estilos para a seção de Palavras Chaves */
+#palavras-chaves {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center; /* Centraliza o título */
+}
+
+/* Lista de palavras chaves */
+#palavras-chaves + ul {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  list-style-type: none; /* Remove os marcadores padrão */
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Estilo para cada item da lista */
+#palavras-chaves + ul li {
+  background-color: #f4f4f4; /* Cor de fundo leve para destacar os itens */
+  margin: 10px 0; /* Distância entre os itens */
+  padding: 10px;
+  border-radius: 5px; /* Bordas arredondadas para os itens */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para hover */
+  font-weight: 500; /* Torna o texto mais forte */
+  text-align: center; /* Centraliza o texto dentro do item */
+}
+
+/* Efeito de hover nos itens */
+#palavras-chaves + ul li:hover {
+  transform: translateY(-5px); /* Levanta o item ao passar o mouse */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Aumenta a sombra no hover */
+}
+
+/* Melhorando a responsividade para telas menores */
+@media (max-width: 768px) {
+  #palavras-chaves {
+      font-size: 22px; /* Ajusta o tamanho da fonte do título em telas pequenas */
+  }
+
+  #palavras-chaves + ul {
+      font-size: 16px; /* Ajusta o tamanho da fonte dos itens para telas pequenas */
+  }
+}
+/*----------estilop5--------------*/
+
+/* Estilos para o título da seção Passo a Passo */
+#steps-section {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center; /* Centraliza o título */
+}
+
+/* Estilo geral para cada seção de passo */
+section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 30px; /* Espaço entre os passos */
+  border-radius: 8px; /* Bordas arredondadas para os passos */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de hover nos passos */
+section:hover {
+  transform: translateY(-5px); /* Eleva o passo ao passar o mouse */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Aumenta a sombra no hover */
+}
+
+/* Estilos para o título de cada passo (Passo 1, Passo 2, etc.) */
+section h3 {
+  font-size: 22px;
+  color: #004080;
+  margin-bottom: 15px;
+}
+
+/* Estilos para o texto descritivo de cada passo */
+section p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Estilos para o vídeo */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px; /* Bordas arredondadas para o vídeo */
+  max-width: 100%;
+  background-color: #000; /* Fundo preto para vídeos */
+  padding-top: 56.25%; /* Proporção 16:9 */
+  height: 0;
+}
+
+/* Responsividade: ajustes para vídeos */
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Melhorando a responsividade para telas menores */
+@media (max-width: 768px) {
+  #steps-section {
+      font-size: 22px; /* Ajusta o tamanho da fonte para o título */
+  }
+
+  section h3 {
+      font-size: 20px; /* Ajusta o tamanho da fonte dos subtítulos */
+  }
+
+  section p {
+      font-size: 14px; /* Ajusta o tamanho da fonte do texto descritivo */
+  }
+
+  /* Reduzindo o tamanho do vídeo em telas menores */
+  .video-container {
+      padding-top: 60%; /* Ajuste para o vídeo ocupar 100% de largura */
+  }
+}
+
+
+
+/*----------estilop6-----------*/
+/* Estilos para a seção de descrição do projeto */
+#project-description {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center; /* Centraliza o título */
+}
+
+/* Parágrafo da descrição do projeto */
+#project-description + p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  text-align: justify; /* Justifica o texto para uma leitura mais fluida */
+  margin: 0 auto;
+  max-width: 400px; /* Limita a largura para maior legibilidade */
+  padding: 0 15px;
+}
+
+/* Estilos para a seção de objetivos */
+#project-goals {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  text-align: center; /* Centraliza o título */
+}
+
+/* Lista de objetivos */
+#project-goals + ul {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  list-style-type: disc; /* Define o tipo de marcador para os itens da lista */
+  padding-left: 40px; /* Adiciona um espaço à esquerda para os marcadores */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Estilo para cada item da lista */
+#project-goals + ul li {
+  margin-bottom: 10px;
+}
+
+/* Melhorando a responsividade para telas menores */
+@media (max-width: 768px) {
+  #project-description {
+      font-size: 22px; /* Ajusta o tamanho da fonte para telas menores */
+  }
+
+  #project-description + p {
+      font-size: 16px; /* Reduz o tamanho da fonte do parágrafo em telas menores */
+  }
+
+  #project-goals {
+      font-size: 22px; /* Ajusta o tamanho da fonte para telas menores */
+  }
+
+  #project-goals + ul {
+      font-size: 16px; /* Reduz o tamanho da fonte da lista */
+      padding-left: 30px; /* Ajusta o espaçamento da lista */
+  }
+}
+
+
+/*---------------Autores-----------*/
+
+/* Estilos para a seção de autores */
+#authors-section {
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Grid de autores */
+.authors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grid responsiva */
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+/* Estilo das caixas dos autores */
+.author-box {
+  background-color: #fff;
+  border-radius: 15px; /* Bordas arredondadas */
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+  text-align: center;
+  max-width: 300px; /* Limita a largura das caixas */
+  margin: 0 auto;
+}
+
+.author-box:hover {
+  transform: translateY(-10px); /* Efeito de "elevação" no hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Aumenta a sombra ao passar o mouse */
+}
+
+/* Foto do autor */
+.author-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Deixa a foto redonda */
+  object-fit: cover; /* Garante que a foto cubra toda a área */
+  margin-bottom: 15px;
+}
+
+/* Nome do autor */
+.author-box h3 {
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Links de contato */
+.author-box p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+/* Estilos para os links */
+.author-box a {
+  color: #004080;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.author-box a:hover {
+  color: #0056b3; /* Cor do link ao passar o mouse */
+  text-decoration: underline; /* Sublinha o link no hover */
+}
+
+/* Estilos para os botões de navegação */
+.author-box a:active {
+  color: #003366; /* Cor do link quando clicado */
+}
+
+
+/*--------------Problemas e desafios------------*/
+
+/* Estilos para a seção de Problemas Enfrentados e Lições Aprendidas */
+#problems-lessons {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center; /* Centraliza o título */
+}
+
+/* Estilo para as seções de "Principais Desafios" e "Principais Lições" */
+section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 30px; /* Espaço entre as seções */
+  border-radius: 8px; /* Bordas arredondadas para as seções */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de hover nas seções */
+section:hover {
+  transform: translateY(-5px); /* Eleva a seção ao passar o mouse */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Aumenta a sombra no hover */
+}
+
+/* Estilo dos títulos das subseções (Desafios e Lições) */
+section h3 {
+  font-size: 22px;
+  color: #004080;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* Estilo das listas de problemas e lições */
+section ul {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  list-style-type: none; /* Remove os marcadores padrão */
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilo para cada item da lista */
+section ul li {
+  background-color: #f4f4f4; /* Cor de fundo leve para destacar os itens */
+  margin: 10px 0; /* Distância entre os itens */
+  padding: 15px;
+  border-radius: 5px; /* Bordas arredondadas para os itens */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para hover */
+}
+
+/* Efeito de hover nos itens das listas */
+section ul li:hover {
+  transform: translateY(-5px); /* Levanta o item ao passar o mouse */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Aumenta a sombra no hover */
+}
+
+/* Estilo para o texto em negrito dentro das listas */
+section ul li strong {
+  font-weight: 600;
+  color: #004080; /* Cor do texto em negrito */
+}
+
+/* Melhorando a responsividade para telas menores */
+@media (max-width: 768px) {
+  #problems-lessons {
+      font-size: 22px; /* Ajusta o tamanho da fonte do título em telas pequenas */
+  }
+
+  section h3 {
+      font-size: 20px; /* Ajusta o tamanho da fonte dos subtítulos */
+  }
+
+  section ul li {
+      font-size: 14px; /* Reduz o tamanho da fonte dos itens da lista em telas pequenas */
+  }
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site tutorial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Checkbox invisível para controlar o menu -->
+    <input type="checkbox" id="menu-checkbox" style="display: none;">
+
+    <!-- Botão do menu hamburguer -->
+    <label for="menu-checkbox" class="menu-toggle">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </label>
+
+    <!-- Menu expansível -->
+    <nav class="menu">
+        <li><a href="#main-container">Início</a></li>
+                <li><a href="#project-description">Descrição</a></li>
+                <li><a href="#project-goals">Objetivos</a></li>
+                <li><a href="#materials-list">Materiais</a></li>
+                <li><a href="#esquema-conceitual">Esquema</a></li>
+                <li><a href="#palavras-chaves">Palavras</a></li>
+                <li><a href="#steps-section">Passo a Passo</a></li>
+                <li><a href="#authors-section">Autores</a></li>
+                <li><a href="#problems-lessons">Problemas e Lições</a></li>
+        </li>
+    </nav>
+
+    <div id="main-container" class="container">
+        <h1>Monitoramento de Nível de Água</h1>
+
+        <h2 id="project-description">Descrição do Projeto</h2>
+        <p>Este projeto visa monitorar o nível de água em reservatórios como caixas d'água, utilizando LEDs para indicar o nível (0%, 25%, 50%, 75%, 100%) e um buzzer para alertar quando o nível estiver cheio (100%). O objetivo é evitar transbordamento e facilitar o monitoramento do volume de água.</p>
+
+        <h2 id="project-goals">Objetivos</h2>
+        <ul>
+            <li>Evitar transbordamento através do som emitido pelo buzzer.</li>
+            <li>Reduzir o desperdício de água monitorando o nível.</li>
+            <li>Facilitar a visualização do nível de água com LEDs.</li>
+            <li>Prevenir acidentes relacionados ao difícil acesso ao reservatório.</li>
+        </ul>
+
+        <h2 id="materials-list">Materiais Necessários</h2>
+        <ul>
+            <li>5 resistores de 180 ohms</li>
+            <li>5 transistores BC548</li>
+            <li>2 LEDs vermelhos</li>
+            <li>2 LEDs amarelos</li>
+            <li>1 LED verde</li>
+            <li>1 Arduino Uno</li>
+            <li>1 Buzzer</li>
+            <li>Jumpers, estanho, fios e ferro de solda</li>
+        </ul>
+    
+        <h2 id="esquema-conceitual">Esquema conceitual</h2>
+        <img src="img/Esquema conceitual.jpeg" alt="Esquema conceitual" class="esquema-coneitual">
+        
+        <h2 id="palavras-chaves">Palavras Chaves</h2>
+        <ul>
+            <li>Monitoramento de água</li>
+            <li>Reservatório</li>
+            <li>Arduino</li>
+            <li>Automação</li>
+            <li>Controle de nível</li>
+        </ul>
+
+        <h2 id="steps-section">Passo a Passo da Montagem</h2>
+        <!-- Passo a Passo -->
+        <section id="step1">
+            <h3>Passo 1: Conecte os LEDs aos Resistores</h3>
+            <p>Conecte os LEDs aos resistores de 180 ohms para limitar a corrente elétrica e evitar danos aos LEDs. Esta etapa é essencial para proteger os componentes.</p>
+            <div class="video-container">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_1" title="Vídeo Passo 1" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="step2">
+            <h3>Passo 2: Controle com Transistores BC548</h3>
+            <p>Utilize transistores BC548 para controlar os LEDs através do Arduino. Os transistores funcionarão como interruptores eletrônicos, facilitando o controle dos LEDs.</p>
+            <div class="video-container">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_2" title="Vídeo Passo 2" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="step3">
+            <h3>Passo 3: Instalação dos Fios nos Níveis</h3>
+            <p>Instale os fios nos diferentes níveis do reservatório (0%, 25%, 50%, 75% e 100%). Os fios conduzirão a carga elétrica ao Arduino quando a água atingir cada nível, ativando o LED correspondente.</p>
+            <div class="video-container">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_3" title="Vídeo Passo 3" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="step4">
+            <h3>Passo 4: Conexão ao Arduino</h3>
+            <p>Conecte os LEDs e o buzzer aos pinos digitais do Arduino. Cada LED será ligado a um pino específico para que o Arduino possa controlar o nível de água corretamente.</p>
+            <div class="video-container">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_4" title="Vídeo Passo 4" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="step5">
+            <h3>Passo 5: Soldagem das Conexões</h3>
+            <p>Utilize o ferro de solda para fixar as conexões de forma segura. A soldagem garante que os componentes estejam bem conectados e que o circuito funcione corretamente.</p>
+            <div class="video-container">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/SEU_VIDEO_5" title="Vídeo Passo 5" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Autores -->
+        <h2 id="authors-section">Autores</h2>
+        <div class="authors-grid">
+            <div class="author-box">
+                <img src="img/Álvaro.jfif" alt="Foto de Álvaro" class="author-photo">
+                <h3>Álvaro Silva</h3>
+                <p>Email: <a href="mailto:aas3@cesar.school">aas3@cesar.school</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/%C3%A1lvaro-silva/">Álvaro Silva</a></p>
+                <p>GitHub: <a href="https://github.com/alvaro5801">Álvaro Silva</a></p>
+            </div>
+            <div class="author-box">
+                <img src="img/Arthur.jpeg" alt="Foto de Arthur" class="author-photo">
+                <h3>Arthur Estevão</h3>
+                <p>Email: <a href="mailto:aerl@cesar.school">aerl@cesar.school</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/arthur-estev%C3%A3o-304707260">Arthur Estevão</a></p>
+                <p>GitHub: <a href="https://github.com/ArthurEstevaum">Arthur Estevão</a></p>
+            </div>
+            <div class="author-box">
+                <img src="img/Icaro.jpeg" alt="Foto de Ícaro" class="author-photo">
+                <h3>Ícaro Leonardo</h3>
+                <p>Email: <a href="mailto:ilss@cesar.school">ilss@cesar.school</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/icaro-costa-ic/">Icaro Leonardo</a></p>
+                <p>GitHub: <a href="https://github.com/icaro-costa">Icaro Leonardo</a></p>
+            </div>
+            <div class="author-box">
+                <img src="img/Thays.jpeg" alt="Foto de Thays" class="author-photo">
+                <h3>Thays Barbosa</h3>
+                <p>Email: <a href="mailto:tbsc@cesar.school">tbsc@cesar.school</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/thays-barbosa-332683318/">Thays Barbosa</a></p>
+                <p>GitHub: <a href="https://github.com/idthy">Thays Barbosa</a></p>
+            </div>
+        </div>
+        <!-- Problemas e soluções -->
+        <h2 id="problems-lessons">Problemas Enfrentados e Lições Aprendidas</h2>
+        <section>
+            <h3>Principais Desafios Enfrentados</h3>           
+            <ul>
+                <li><strong>1. Integração dos LEDs com o Arduino:</strong> Houve dificuldade na conexão dos LEDs aos resistores e ao Arduino, pois o cálculo dos valores exatos de resistores para evitar danos aos LEDs exigiu um ajuste fino.</li>
+                <li><strong>2. Configuração dos Níveis de Água:</strong> O sensor tinha sensibilidade limitada, e houve dificuldade em calibrá-lo. Solução: Implementamos uma rotina de calibração para garantir leituras mais precisas.</li>
+            </ul>
+           
+            <h3>Principais Lições Aprendidas</h3>
+            <ul>
+                <li><strong>1. Importância do Planejamento Prévio:</strong> Planejar cada etapa foi essencial para minimizar problemas e economizar tempo.</li>
+                <li><strong>2. Resiliência e Trabalho em Equipe:</strong> Trabalhar juntos e dividir tarefas foi crucial para superar os desafios.</li>
+            </ul>
+        </section>
+
+        <a href="" id="download-button" class="button">Download</a>
+    </div>
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>
